@@ -1,7 +1,7 @@
 # DEModule5Library
 For Module 5 of the Data Engineering apprenticeship. Library exercise.
 ## Architecture Diagram
-![MVP Diagram](DE5M5Architecture.drawio.png)
+![MVP Diagram](resources/DE5M5Architecture.drawio.png)
 
 ## Kanban Board
-![Kanban Board](KanbanBoard.png)
+![Kanban Board](resources/KanbanBoard.png)
