@@ -10,7 +10,7 @@ def load_csv(file_name, folder):
 def dateDuration(date1, date2, df):
     #creates column which date diff between two columns
     df['date_delta'] = (df[date1]-df[date2]).dt.days
-    return df['date_delta']
+    return df
 
 def removeblanks(df, column):
     #remove blank rows based on column

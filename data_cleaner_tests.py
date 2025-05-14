@@ -22,12 +22,12 @@ class TestOp(ut.TestCase):
 
 # Check todatetime
     def test_datetime(self):
-        self.assertIsInstance(self.modifieddf['Book Returned'], pd.Timestamp, "Column needs produce a datetime!")
+        self.assertTrue(pd.api.types.is_datetime64_any_dtype(self.modifieddf['Book Returned']), "Column needs produce a datetime!")
 
 # Check dedupe
     def test_deduper(self):
         self.assertEqual(len(self.modifieddf), 1, "Should remove duplicates to leave 1 row!")
-        self.assertTrue(self.modifieddf.duplicated().sum()) == 0, "Output should contain no duplicates!"
+        self.assertTrue(self.modifieddf.duplicated().count()) == 0, "Output should contain no duplicates!"
 
 
 if __name__ == '__main__':
