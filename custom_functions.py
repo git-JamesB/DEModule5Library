@@ -10,7 +10,7 @@ def load_csv(file_name, folder):
 def dateDuration(date1, date2, df):
     #creates column which date diff between two columns
     df['date_delta'] = (df[date1]-df[date2]).dt.days
-    return df
+    return df['date_delta']
 
 def removeblanks(df, column):
     #remove blank rows based on column
@@ -20,12 +20,8 @@ def removeblanks(df, column):
 def dupecheck(df):
     #count duplicates
     dupe_count = df.duplicated().sum()
-    #drop duplicates if any exist
-    if dupe_count > 0:
-        df.drop_duplicates()
-        return print(f'{dupe_count} duplicates will be removed')
-    else:
-        return print("No Duplicates")
+    #drop duplicates
+    return df.drop_duplicates() #print(f'{dupe_count} duplicates will be removed')
 
 def todatetime(df, column):
     try:
