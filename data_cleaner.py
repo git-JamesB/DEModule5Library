@@ -102,7 +102,9 @@ if __name__ == '__main__':
     # DE Metrics to SSMS as a table
     df_metrics = pd.DataFrame(columns = ['Entity', 'Metric', 'Value', 'RanOn'], data = [
         ['Books','Rows dropped',book_starting_count - book_finishing_count, startdatetime],
+        ['Books','Rows inserted',book_finishing_count, startdatetime],
         ['Customers','Rows dropped',customer_starting_count - customer_finishing_count, startdatetime],
+        ['Customers','Rows inserted',customer_finishing_count, startdatetime],
         ['Pipeline', 'Pipeline runtime (sec)', pipelineruntime, startdatetime]])
 
     #write DE metrics to sql
