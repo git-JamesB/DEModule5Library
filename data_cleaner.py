@@ -5,6 +5,8 @@ import datetime as dt
 import custom_functions as cf
     
 if __name__ == '__main__':
+    #get start datetime
+    startdatetime = dt.datetime.now()
     #get csv data
     df_book = cf.load_csv('03_Library Systembook.csv', 'Data')
     df_cust = cf.load_csv('03_Library SystemCustomers.csv', 'Data')
@@ -87,11 +89,20 @@ if __name__ == '__main__':
     #write Books to sql
     cf.writetosql(server = 'localhost', database = 'Library', table = 'Books', df = df_book, method = 'replace')
 
+    #for testing runtime metric
+    #import time
+    #time.sleep(1)
+
+    #set end datetime
+    enddatetime = dt.datetime.now()
+    pipelineruntime = enddatetime - startdatetime
+    pipelineruntime = round(pipelineruntime.total_seconds(),1)
 
     # DE Metrics to SSMS as a table
     df_metrics = pd.DataFrame(columns = ['Entity', 'Metric', 'Value', 'RanOn'], data = [
-        ['Books','Rows dropped',book_starting_count - book_finishing_count, dt.datetime.now()],
-        ['Customers','Rows dropped',customer_starting_count - customer_finishing_count, dt.datetime.now()]])
+        ['Books','Rows dropped',book_starting_count - book_finishing_count, startdatetime],
+        ['Customers','Rows dropped',customer_starting_count - customer_finishing_count, startdatetime],
+        ['Pipeline', 'Pipeline runtime (sec)', pipelineruntime, startdatetime]])
 
     #write DE metrics to sql
     cf.writetosql(server = 'localhost', database = 'Library', table = 'DE_Metrics', df = df_metrics, method = 'append')

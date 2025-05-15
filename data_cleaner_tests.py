@@ -15,10 +15,7 @@ class TestOp(ut.TestCase):
 
 # Check duration column is an integer
     def test_duration_int(self):
-        self.assertTrue(pd.api.types.is_integer_dtype(self.modifieddf['date_delta']), "The delta col is not an integer")
-
-# Check duration column is above 0
-
+        self.assertTrue(pd.api.types.is_integer_dtype(self.modifieddf['date_delta']), "The delta col is not an integer!")
 
 # Check todatetime
     def test_datetime(self):

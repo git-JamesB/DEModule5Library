@@ -21,7 +21,7 @@ def dupecheck(df):
     #count duplicates
     dupe_count = df.duplicated().sum()
     #drop duplicates
-    return df.drop_duplicates() #print(f'{dupe_count} duplicates will be removed')
+    return df.drop_duplicates() #, print(f'{dupe_count} duplicates will be removed')
 
 def todatetime(df, column):
     try:
