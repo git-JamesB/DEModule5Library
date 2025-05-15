@@ -33,14 +33,14 @@ def todatetime(df, column):
     except Exception as e:
         print(f'Error occured: {e}')
 
-def writetosql(server, database, table, df):
+def writetosql(server, database, table, df, method):
     #create connection
     connection_string = f'mssql+pyodbc://@{server}/{database}?trusted_connection=yes&driver=ODBC+Driver+17+for+SQL+Server'
     engine = create_engine(connection_string)
     #write to sql
     try:
         # Write the DataFrame to SQL Server
-        df.to_sql(table, con = engine, if_exists = 'replace', index = False)
+        df.to_sql(table, con = engine, if_exists = method, index = False)
         print(f"Written to SQL table {table}")
     except Exception as e:
         print(f"Error writing to the SQL Server: {e}")

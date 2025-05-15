@@ -83,9 +83,9 @@ if __name__ == '__main__':
 
     ## Insert into SQL
     #write Customer to sql
-    cf.writetosql(server = 'localhost', database = 'Library', table = 'Customer', df = df_cust)
+    cf.writetosql(server = 'localhost', database = 'Library', table = 'Customer', df = df_cust, method = 'replace')
     #write Books to sql
-    cf.writetosql(server = 'localhost', database = 'Library', table = 'Books', df = df_book)
+    cf.writetosql(server = 'localhost', database = 'Library', table = 'Books', df = df_book, method = 'replace')
 
 
     # DE Metrics to SSMS as a table
@@ -94,7 +94,7 @@ if __name__ == '__main__':
         ['Customers','Rows dropped',customer_starting_count - customer_finishing_count, dt.datetime.now()]])
 
     #write DE metrics to sql
-    cf.writetosql(server = 'localhost', database = 'Library', table = 'DE_Metrics', df = df_metrics)
+    cf.writetosql(server = 'localhost', database = 'Library', table = 'DE_Metrics', df = df_metrics, method = 'append')
 
 
 
