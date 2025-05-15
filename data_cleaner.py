@@ -29,11 +29,10 @@ if __name__ == '__main__':
     # alter df to exclude blanks books
     df_book = cf.removeblanks(df = df_book, column = 'Books')
 
-    #format returned dates
-    cf.todatetime(df = df_book, column = 'Book Returned')
-
-    #format checkout dates
-    cf.todatetime(df = df_book, column = 'Book checkout')
+    #format dates
+    date_array = ['Book Returned','Book checkout']
+    for date in date_array:
+            cf.todatetime(df= df_book, column = date)
 
     #duplicate check
     cf.dupecheck(df_book)

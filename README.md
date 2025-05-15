@@ -20,7 +20,7 @@ The solution will be packaged as a Docker image to create a consistent, portable
 
 ## Improvements for later releases:
     - normalise systembook data into book and loan table - + integrity and - redundancy by maintaing accurate & consistent data
-    - More error handling
+    - More error handling & unit test coverage
     - More debugging e.g. caveman
     - Use loops where applicable. E.g. Datetime conversion.
     - Security:
