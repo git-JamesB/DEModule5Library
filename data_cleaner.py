@@ -112,5 +112,6 @@ if __name__ == '__main__':
     '''
     Improvements:
     - More error handling
+    - More debugging e.g. caveman
     - Use loops where applicable. E.g. Datetime conversion.
     '''
