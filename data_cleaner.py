@@ -15,8 +15,6 @@ if __name__ == '__main__':
     book_starting_count = df_book.shape[0]
     customer_starting_count = df_cust.shape[0]
 
-
-
     ## cleanse book data
     print("-----Cleaning Book data-----")
 
@@ -83,6 +81,10 @@ if __name__ == '__main__':
     print(f"Starting Customer row count: {customer_starting_count}. Finishing Customer row count: {customer_finishing_count}. {customer_starting_count - customer_finishing_count} rows dropped.")
     #cf.log_row_drops(entity_name='Customer', start_count=customer_starting_count, df_end=df_cust)
 
+    # Print results to console for docker demo
+    print(df_cust.head(10))
+    print(df_book.head(10))
+
     ## Insert into SQL
     #write Customer to sql
     cf.writetosql(server = 'localhost', database = 'Library', table = 'Customer', df = df_cust, method = 'replace')
@@ -106,12 +108,3 @@ if __name__ == '__main__':
 
     #write DE metrics to sql
     cf.writetosql(server = 'localhost', database = 'Library', table = 'DE_Metrics', df = df_metrics, method = 'append')
-
-
-
-    '''
-    Improvements:
-    - More error handling
-    - More debugging e.g. caveman
-    - Use loops where applicable. E.g. Datetime conversion.
-    '''

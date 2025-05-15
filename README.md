@@ -17,3 +17,14 @@ A pipeline using a python script to automatically extract the data from their cs
 A Power BI report will then be built, using this SQL data, to visualise the loan and customer data, and metrics about the pipeline runs.
 
 The solution will be packaged as a Docker image to create a consistent, portable and resuable environment for running the solution.
+
+## Improvements for later releases:
+    - normalise systembook data into book and loan table - + integrity and - redundancy by maintaing accurate & consistent data
+    - More error handling
+    - More debugging e.g. caveman
+    - Use loops where applicable. E.g. Datetime conversion.
+    - Security:
+        - seperate data from python transformations   
+        - Access control to SQL and Power BI
+        - Does customer name need to be shown in report and masked in sql
+        - Check on row count of csv files - too many/few 
